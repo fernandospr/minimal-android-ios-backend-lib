@@ -15,7 +15,7 @@ This task will publish in your `/.m2/repository` folder.
 
 2. Open the Android/JVM/Backend client project and make sure you have `mavenLocal()` in your repositories configuration.
 3. Add the dependency: `implementation("{group}:{rootProject.name}:{version}")`. For this example, it's `implementation("com.github.fernandospr:minimal-android-ios-backend-lib:1.0.0")`.
-4. Now in your Android app code you can import the library classes.
+4. Now in your Android/JVM/Backend app code you can import the library classes.
   
 ### Compiling the library for iOS apps
 1. Execute the Gradle Task: `assemble{libName}XCFramework` using `./gradlew assemble{libName}XCFramework`. For this example, it's `./gradlew assembleMAIBLibXCFramework`. This task will generate the framework in `build/XCFrameworks` of the library project.

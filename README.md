@@ -30,6 +30,20 @@ Contains a sample Android App that uses the library.
 
 To build this app you'll need to compile the library locally first, as explained above.
 
+`MainActivity.kt` contains the following code that uses the `Example` class from the library:
+
+```kotlin
+import com.github.fernandospr.maiblib.Example
+
+class MainActivity : AppCompatActivity() {
+  override fun onCreate(savedInstanceState: Bundle?) {
+    ...
+    val example = Example()
+    findViewById<TextView>(R.id.textView).text = example.hello("Fernando")
+  }
+}
+```
+
 ### Screenshots
 <img width="200" alt="android-maiblib-sample" src="https://user-images.githubusercontent.com/4404680/177391909-a2043ddd-54c1-4186-88f7-aa16f8185cea.png">
 
@@ -39,6 +53,21 @@ Contains a sample iOS App that uses the library.
 
 This app already contains the framework compiled and copied to the project folder so you can safely build the app.
 
+`ViewController.swift` contains the following code that uses the `Example` class from the library:
+
+```swift
+import MAIBLib
+
+class ViewController: UIViewController {
+  ...
+  override func viewDidLoad() {
+    ...
+    let example = Example()
+    label.text = example.hello(who: "Fernando")
+  }
+}
+```
+
 ### Screenshots
 <img width="200" alt="ios-maiblib-sample" src="https://user-images.githubusercontent.com/4404680/177391856-ff00adae-6392-4164-8fd5-d5d5b5949eb2.png">
 
@@ -46,6 +75,27 @@ This app already contains the framework compiled and copied to the project folde
 Contains a sample Kotlin Backend App that uses the library.
 
 To build this app you'll need to compile the library locally first, as explained above.
+
+`Controller.kt` contains the following code that uses the `Example` class from the library:
+```kotlin
+import com.github.fernandospr.maiblib.Example
+
+@RestController
+@RequestMapping("/web")
+class WebController {
+
+  @GetMapping("/hello")
+  fun hello(@PathParam("who") who: String) = Example().hello(who)
+}
+
+@RestController
+@RequestMapping("/api")
+class ApiController {
+
+  @GetMapping("/hello")
+  fun hello(@PathParam("who") who: String) = ApiResponse(Example().hello(who))
+}
+```
 
 ### Screenshots
 Using the `Example` class in a Web server that returns a String:

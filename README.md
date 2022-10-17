@@ -1,4 +1,10 @@
-Demonstrates a minimal Kotlin library to share logic in Android, iOS and JVM Backend projects.
+Demonstrates a minimal Kotlin library to share logic in Android, iOS and JVM Backend projects using Kotlin Multiplatform.
+
+This repository contains the following folders:
+* minimal-android-ios-backend-lib
+* android-sample-app
+* ios-sample-app
+* backend-sample-app
 
 ## minimal-android-ios-backend-lib
 Contains the Kotlin code to share across platforms.

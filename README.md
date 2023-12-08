@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity() {
 ## ios-sample-app
 Contains a sample iOS App that uses the library.
 
-This app already contains the framework compiled and copied to the project folder so you can safely build the app.
+To build this app you'll need to compile the library locally and copy it to the iOS project folder, as explained above.
 
 `ViewController.swift` contains the following code that uses the `Example` class from the library:
 
@@ -91,7 +91,7 @@ import com.github.fernandospr.maiblib.Example
 class WebController {
 
   @GetMapping("/hello")
-  fun hello(@PathParam("who") who: String) = Example().hello(who)
+  fun hello(@RequestParam("who") who: String) = Example().hello(who)
 }
 
 @RestController
@@ -99,7 +99,7 @@ class WebController {
 class ApiController {
 
   @GetMapping("/hello")
-  fun hello(@PathParam("who") who: String) = ApiResponse(Example().hello(who))
+  fun hello(@RequestParam("who") who: String) = ApiResponse(Example().hello(who))
 }
 ```
 

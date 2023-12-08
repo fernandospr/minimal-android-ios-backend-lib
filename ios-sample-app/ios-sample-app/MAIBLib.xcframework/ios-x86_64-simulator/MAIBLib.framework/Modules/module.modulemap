@@ -1,6 +1,0 @@
-framework module MAIBLib {
-    umbrella header "MAIBLib.h"
-
-    export *
-    module * { export * }
-}

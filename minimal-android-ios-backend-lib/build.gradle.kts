@@ -1,7 +1,7 @@
 import org.jetbrains.kotlin.gradle.plugin.mpp.apple.XCFramework
 
 plugins {
-    kotlin("multiplatform") version "1.6.21"
+    kotlin("multiplatform") version "1.9.21"
     id("maven-publish")
 }
 
@@ -15,8 +15,12 @@ repositories {
 
 kotlin {
     val xcFramework = XCFramework(libName)
-    ios {
-        binaries.framework(libName) {
+    listOf(
+        iosX64(),
+        iosArm64(),
+        iosSimulatorArm64()
+    ).forEach {
+        it.binaries.framework(libName) {
             xcFramework.add(this)
         }
     }

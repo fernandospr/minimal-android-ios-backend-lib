@@ -14,4 +14,4 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "Android MAIBLib Sample"
-include ':app'
+include(":app")

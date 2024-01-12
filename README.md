@@ -24,7 +24,7 @@ This task will publish in your `~/.m2/repository` folder.
 4. Now in your Android/JVM app code you can import the library classes.
   
 ### Compiling the library for iOS apps
-1. Execute the Gradle Task: `assemble{libName}XCFramework` using `./gradlew assemble{libName}ReleaseXCFramework`. For this example, it's `./gradlew assembleMAIBLibReleaseXCFramework`. This task will generate the framework in `build/XCFrameworks` of the library project.
+1. Execute the Gradle Task: `assemble{libName}XCFramework` using `./gradlew assemble{libName}ReleaseXCFramework`. For this example, it's `./gradlew assembleMAIBLibReleaseXCFramework`. This task will generate the framework in `build/XCFrameworks/release` of the library project.
 2. Copy the framework to your iOS client project.
 3. Open your iOS client project using Xcode, go to the project properties, open `General` tab and add the framework in the `Frameworks, Libraries and Embedded Content` section.
 4. Now in your iOS app code you can import the library classes.

@@ -2,43 +2,54 @@ import org.jetbrains.kotlin.gradle.plugin.mpp.apple.XCFramework
 
 plugins {
     kotlin("multiplatform") version "1.9.21"
+    id("com.android.library") version "8.1.4"
     id("maven-publish")
 }
 
-val libName = "MAIBLib"
 group = "com.github.fernandospr"
 version = "1.0.0"
 
-repositories {
-    mavenCentral()
-}
-
 kotlin {
-    val xcFramework = XCFramework(libName)
+    androidTarget {
+        publishLibraryVariants("release", "debug")
+        compilations.all {
+            kotlinOptions {
+                jvmTarget = "1.8"
+            }
+        }
+    }
+
+    jvm()
+
+    val name = "MAIBLib"
+    val xcf = XCFramework(name)
     listOf(
         iosX64(),
         iosArm64(),
         iosSimulatorArm64()
     ).forEach {
-        it.binaries.framework(libName) {
-            xcFramework.add(this)
+        it.binaries.framework {
+            baseName = name
+            xcf.add(this)
+            isStatic = true
         }
     }
-    jvm {
-        compilations.all {
-            kotlinOptions.jvmTarget = "1.8"
-        }
-        withJava()
-        testRuns["test"].executionTask.configure {
-            useJUnitPlatform()
-        }
-    }
+
     sourceSets {
-        val commonMain by getting
-        val commonTest by getting {
-            dependencies {
-                implementation(kotlin("test"))
-            }
+        commonMain.dependencies {}
+        jvmMain.dependencies {}
+        androidMain.dependencies {}
+        iosMain.dependencies {}
+        commonTest.dependencies {
+            implementation(kotlin("test"))
         }
+    }
+}
+
+android {
+    namespace = "com.github.fernandospr"
+    compileSdk = 34
+    defaultConfig {
+        minSdk = 24
     }
 }

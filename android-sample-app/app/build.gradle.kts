@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "com.github.fernandospr.maiblib.sample"
-        minSdk = 21
+        minSdk = 24
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
@@ -34,7 +34,7 @@ android {
 
 dependencies {
     implementation("com.google.android.material:material:1.9.0")
-    implementation("com.github.fernandospr:minimal-android-ios-backend-lib:1.0.0")
+    implementation("com.github.fernandospr:minimal-android-ios-backend-lib-android:1.0.0")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.3")

@@ -22,7 +22,7 @@ repositories {
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
-    implementation("com.github.fernandospr:minimal-android-ios-backend-lib:1.0.0")
+    implementation("com.github.fernandospr:minimal-android-ios-backend-lib-jvm:1.0.0")
     testImplementation(kotlin("test"))
 }
 
